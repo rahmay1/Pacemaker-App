@@ -1,0 +1,2537 @@
+# Login Menu contents
+<LoginMenuWindow>
+    id: login_win
+    name: "loginMenu"
+    space_x: self.size[0]/3
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.06, 0.50, 0.75, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "Sign In"
+                bold: True
+                size_hint_x: 0.9
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: login_win.space_x, 10
+            spacing: 20
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 15
+                size_hint_y: None
+                height: 110
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+                TextInput:
+                    id: userText
+                    hint_text: "Username"
+                    multiline: False
+                    focus: True
+                    on_text_validate: passText.focus = True
+                TextInput:
+                    id: passText
+                    hint_text: "Password"
+                    multiline: False
+                    password: True
+                    on_text_validate: root.check_user()
+            Label:
+                id: sp
+                size_hint_y: None
+                height: 40
+            Button:
+                text: "Login"
+                size_hint_y: None
+                height: 40
+                background_color: (0.06, 0.50, 0.75, 1)
+                background_normal: ''
+                on_release: root.check_user()
+            Button:
+                text: "Don't have an account? Signup"
+                size_hint_y: None
+                height: 40
+                background_color: (0.06, 0.50, 0.75, 1)
+                background_normal: ''
+                on_release: root.register_Call()
+            Label:
+                id: sp2
+
+# Register Menu contents
+<RegisterMenuWindow>
+    id: register_win
+    name: "registerMenu"
+    space_x: self.size[0]/3
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.06, 0.50, 0.75, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "Register"
+                bold: True
+                size_hint_x: 0.9
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: register_win.space_x, 10
+            spacing: 20
+            BoxLayout:
+                orientation: "vertical"
+                spacing: 15
+                size_hint_y: None
+                height: 110
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+                TextInput:
+                    id: userText
+                    hint_text: "Username"
+                    multiline: False
+                    focus: True
+                    on_text_validate: passText.focus = True
+                TextInput:
+                    id: passText
+                    hint_text: "Password"
+                    multiline: False
+                    password: True
+                    on_text_validate: root.check_register()
+            Label:
+                id: sp
+                size_hint_y: None
+                height: 40
+            Button:
+                text: "Signup"
+                size_hint_y: None
+                height: 40
+                background_color: (0.06, 0.50, 0.75, 1)
+                background_normal: ''
+                on_release: root.check_user()
+            Button:
+                text: "Already have an account? Login"
+                size_hint_y: None
+                height: 40
+                background_color: (0.06, 0.50, 0.75, 1)
+                background_normal: ''
+                on_release: root.login_Call()
+            Label:
+                id: sp2
+
+# Main Menu contents
+<MainMenuWindow>
+    id: main_win
+    name: "mainMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.06, 0.50, 0.75, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                id: welcomeText
+                text: "                                                      Welcome to the PaceMaker App."
+                bold: True
+                size_hint_x: 0.9
+            Label:
+                id: prompt
+                text: "Device not connected"
+                bold: True
+                size_hint_x: 0.2
+            Button:
+                text: "Logout"
+                background_color: (0.06, 0.50, 0.75, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.logout_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: main_win.space_x, 10
+            spacing: 10
+            
+            
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+
+            Label:
+                id: infoText
+                text: ''
+                markup: True
+                size_hint_y: None
+                height: 
+                
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                RelativeLayout:
+                    Button:
+                        text: "Show Egram"
+                        size_hint_y: None
+                        size_hint_x: 0.8
+                        height: 40
+                        background_color: (0.06, 0.50, 0.75, 1)
+                        background_normal: ''
+                        on_release: root.Egram_Call()
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "AOO"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.AOO_Call()
+                Button:
+                    id: SAOO
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialAOO_Call()
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "VOO"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.VOO_Call()
+                Button:
+                    id: SVOO
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialVOO_Call()
+           
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "AAI"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.AAI_Call()
+                Button:
+                    id: SAAI
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialAAI_Call()
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "VVI"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.VVI_Call()
+                Button:
+                    id: SVVI
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialVVI_Call()
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "DOO"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.DOO_Call()
+                Button:
+                    id: SDOO 
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialDOO_Call()
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "AOOR"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.AOOR_Call()
+                Button:
+                    id: SAOOR
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialAOOR_Call()
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "VOOR"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.VOOR_Call()
+                Button:
+                    id: SVOOR
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialVOOR_Call()
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "AAIR"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.AAIR_Call()
+                Button:
+                    id: SAAIR
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialAAIR_Call()
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "VVIR"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.VVIR_Call()
+                Button:
+                    id: SVVIR
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialVVIR_Call()
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "DOOR"
+                    size_hint_y: None
+                    size_hint_x: 0.8
+                    height: 40
+                    background_color: (0.06, 0.50, 0.75, 1)
+                    background_normal: ''
+                    on_release: root.DOOR_Call()
+                Button:
+                    id: SDOOR 
+                    text: "Serial"
+                    size_hint_y: None
+                    size_hint_x: 0.2
+                    height: 40
+                    background_color: (0.9, 0, 0, 0.9)
+                    background_normal: ''
+                    on_release: root.serialDOOR_Call()
+
+# AOO Menu contents          
+<AOOWindow>
+    id: AOO_win
+    name: "AOOMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      AOO State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: AOO_win.space_x, 10
+            spacing: 10
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: AAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: APWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+
+# VOO Menu contents
+<VOOWindow>
+    id: VOO_win
+    name: "VOOMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      VOO State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: VOO_win.space_x, 10
+            spacing: 10
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VPWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+
+# AAI Menu contents
+<AAIWindow>
+    id: AAI_win
+    name: "AAIMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      AAI State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: AAI_win.space_x, 10
+            spacing: 10
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: AAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: APWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Sensitivity (mV)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: ASText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "ARP (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: ARPText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "PVARP (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: PVARPText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Rate Smoothing (%)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RSText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+
+# VVI Menu contents
+<VVIWindow>
+    id: VVI_win
+    name: "VVIMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      VVI State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: VVI_win.space_x, 10
+            spacing: 10
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VPWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Sensitivity (mV)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VSText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "VRP (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VRPText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Rate Smoothing (%)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RSText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+        
+# DOO Menu contents          
+<DOOWindow>
+
+    id: DOO_win
+    name: "DOOMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      DOO State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: DOO_win.space_x, 10
+            spacing: 10
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Fixed AV Delay (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: FAVDText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: AAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: APWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VPWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+
+# AOOR Menu contents          
+<AOORWindow>
+    id: AOOR_win
+    name: "AOORMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      AOOR State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: AOOR_win.space_x, 10
+            spacing: 10
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Maximum Sensor Rate (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: MSRText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: AAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: APWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Activity Threshold"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: ATText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Reaction Time (sec)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT1Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Response Factor"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RFText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Recovery Time (min)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT2Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+
+# VOOR Menu contents
+<VOORWindow>
+    id: VOOR_win
+    name: "VOORMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      VOOR State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: VOOR_win.space_x, 10
+            spacing: 10
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Maximum Sensor Rate (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: MSRText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VPWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Activity Threshold"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: ATText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Reaction Time (sec)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT1Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Response Factor"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RFText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Recovery Time (min)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT2Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+
+# AAIR Menu contents
+<AAIRWindow>
+    id: AAIR_win
+    name: "AAIRMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      AAIR State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: AAIR_win.space_x, 10
+            spacing: 1
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 30
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Maximum Sensor Rate (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: MSRText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: AAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: APWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Sensitivity (mV)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: ASText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "ARP (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: ARPText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "PVARP (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: PVARPText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Rate Smoothing (%)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RSText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Activity Threshold"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: ATText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Reaction Time (sec)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT1Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Response Factor"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RFText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Recovery Time (min)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT2Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+
+# VVIR Menu contents
+<VVIRWindow>
+    id: VVIR_win
+    name: "VVIRMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      VVIR State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: VVIR_win.space_x, 10
+            spacing: 2
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Maximum Sensor Rate (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: MSRText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VPWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Sensitivity (mV)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VSText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "VRP (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VRPText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Rate Smoothing (%)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RSText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Activity Threshold"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: ATText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Reaction Time (sec)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT1Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Response Factor"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RFText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Recovery Time (min)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT2Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+
+# DOOR Menu contents          
+<DOORWindow>
+
+    id: DOOR_win
+    name: "DOORMenu"
+    space_x: self.size[0]/4
+    canvas.before:
+        Color:
+            rgba: (1,1,1, 1)
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    BoxLayout:
+        orientation: "vertical"
+        BoxLayout:
+            orientation: "horizontal"
+            size_hint_y: None
+            height: 50
+            canvas.before:
+                Color:
+                    rgba: (0.3, 0.66, 0.45, 1)
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            Label:
+                text: "                      DOOR State"
+                bold: True
+                size_hint_x: 0.9
+            Button:
+                text: "Back"
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                size_hint_x: 0.1
+                on_release: root.back_Call()
+
+        BoxLayout:
+            orientation: "vertical"
+            padding: DOOR_win.space_x, 10
+            spacing: 3
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Label:
+                    id: infoText
+                    text: ''
+                    markup: True
+                    size_hint_y: None
+                    height: 20
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Lower Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: LRLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+            
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Upper Rate Limit (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: URLText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Maximum Sensor Rate (ppm)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: MSRText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Fixed AV Delay (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: FAVDText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: AAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Amplitude (V)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VAText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Atrial Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: APWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Ventricular Pulse Width (ms)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: VPWText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Activity Threshold"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: ATText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Reaction Time (sec)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT1Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Response Factor"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RFText
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            BoxLayout:
+                orientation: "horizontal"
+                size_hint_y: None
+                height: 40
+                Button:
+                    text: "Recovery Time (min)"
+                    size_hint_x: 0.5
+                    height: 40
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                TextInput:
+                    id: RT2Text
+                    hint_text: ""
+                    multiline: False
+                    focus: True
+                    size_hint_x: 0.5
+
+            Button:
+                text: "Save Changes"
+                size_hint_x: 1
+                height: 20
+                background_color: (0.3, 0.66, 0.45, 1)
+                background_normal: ''
+                on_release: root.save_Call()
+
+# Egram Menu contents
+<EgramWindow>
+
+    FloatLayout:
+        pos_hint: {"center_x":0.5, "center_y":0.5}
+        
+        BoxLayout:
+            pos_hint: {"center_x":0.5, "center_y":0.5}
+            orientation: "vertical"
+            BoxLayout:
+                size_hint: [1, 0.8]
+                Graph:
+                    id: egramATRGraph
+                    x_grid_label: True
+                    y_grid_label: True
+                    tick_color: [1, 0, 0, 1]
+                    xlabel: "Time" 
+                    ylabel: "Volts"
+                    xmin: 0
+                    xmax: 150
+                    ymin:-5
+                    ymax: 5
+                    x_ticks_major:30
+                    y_ticks_major:1
+
+                Graph:
+                    id: egramVENTGraph
+                    x_grid_label: True
+                    y_grid_label: True
+                    tick_color: [1, 0, 0, 1]
+                    xlabel: "Time" 
+                    ylabel: "Volts"
+                    xmin: 0
+                    xmax: 150
+                    ymin:-5
+                    ymax: 5
+                    x_ticks_major:30
+                    y_ticks_major:1
+                    
+            BoxLayout:
+                pos_hint: {"center_x":0.5, "center_y":0.2}
+                size_hint: [1, 0.1]
+                spacing: 5
+                orientation: "horizontal"
+                Button:
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                    text: "Start Pacing"
+                    bold: True
+                    on_release: root.start()
+                Button:
+                    background_color: (0.3, 0.66, 0.45, 1)
+                    background_normal: ''
+                    text: "Stop Pacing"
+                    bold: True
+                    on_release: root.stop()
